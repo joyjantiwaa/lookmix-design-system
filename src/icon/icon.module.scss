@@ -1,0 +1,23 @@
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  flex-shrink: 0;
+  user-select: none;
+  box-sizing: border-box; // Added for overflow prevention
+  transition: color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-default), 
+              opacity var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-default),
+              transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-default);
+
+  &[data-clickable='true'] {
+    cursor: var(--interactions-cursor-pointer);
+
+    &:hover {
+      opacity: var(--effects-opacity-hover);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}

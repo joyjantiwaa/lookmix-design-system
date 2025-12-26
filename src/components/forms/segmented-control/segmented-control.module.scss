@@ -1,0 +1,62 @@
+.segmentedControl {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-small);
+  overflow-x: auto;
+  padding-bottom: var(--spacing-xs); /* For potential scrollbar spacing if any, though usually hidden */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  box-sizing: border-box;
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+}
+
+.option {
+  appearance: none;
+  background-color: var(--colors-surface-tertiary);
+  border: 1px solid transparent;
+  border-radius: var(--borders-radius-pill);
+  padding: var(--spacing-small) var(--spacing-medium);
+  color: var(--colors-text-secondary);
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-body-medium);
+  font-weight: var(--typography-font-weight-medium);
+  line-height: var(--typography-line-height-base);
+  cursor: var(--interactions-cursor-pointer);
+  transition: all var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-default);
+  white-space: nowrap;
+  outline: none;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover:not(:disabled) {
+    background-color: var(--colors-surface-secondary);
+    color: var(--colors-text-primary);
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 var(--borders-focus-width) var(--borders-focus-color);
+  }
+}
+
+.active {
+  background-color: var(--colors-primary-subtle);
+  color: var(--colors-primary-default);
+  font-weight: var(--typography-font-weight-semi-bold);
+
+  &:hover:not(:disabled) {
+    background-color: var(--colors-primary-subtle);
+    opacity: var(--effects-opacity-hover);
+  }
+}
+
+.disabled {
+  opacity: var(--effects-opacity-disabled);
+  cursor: var(--interactions-cursor-disabled);
+  pointer-events: none;
+}

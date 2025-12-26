@@ -1,0 +1,82 @@
+.tabBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-xl);
+  overflow-x: auto;
+  width: 100%;
+  padding: 0 var(--spacing-medium);
+  box-sizing: border-box;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  position: relative;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-small);
+  padding: var(--spacing-medium) 0;
+  background: transparent;
+  border: none;
+  cursor: var(--interactions-cursor-pointer);
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-body-large);
+  font-weight: var(--typography-font-weight-regular);
+  color: var(--colors-text-tertiary);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-default);
+  
+  // Ensure the hit area is good
+  min-width: fit-content;
+
+  &:hover {
+    color: var(--colors-text-primary);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--colors-primary-default);
+    transform: scaleX(0);
+    opacity: 0;
+    transition: transform var(--interactions-transitions-duration-medium) var(--interactions-transitions-easing-out),
+                opacity var(--interactions-transitions-duration-medium) var(--interactions-transitions-easing-out);
+    transform-origin: center;
+  }
+
+  &:focus-visible {
+    outline: var(--borders-focus-width) var(--borders-focus-style) var(--borders-focus-color);
+    outline-offset: var(--borders-focus-offset);
+    border-radius: var(--borders-radius-small);
+  }
+}
+
+.active {
+  color: var(--colors-text-primary);
+  font-weight: var(--typography-font-weight-medium);
+
+  &::after {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  color: inherit;
+  font-size: 1.1em;
+  flex-shrink: 0;
+}

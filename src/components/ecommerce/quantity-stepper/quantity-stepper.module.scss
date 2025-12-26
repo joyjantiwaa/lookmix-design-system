@@ -1,0 +1,41 @@
+.stepper {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--borders-default-color);
+  border-radius: var(--borders-radius-medium);
+  overflow: hidden;
+  background: var(--colors-surface-background);
+}
+
+.button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--colors-text-primary);
+  transition: background 0.2s;
+
+  &:hover:not(:disabled) {
+    background: var(--colors-surface-secondary);
+  }
+
+  &:disabled {
+    color: var(--colors-text-tertiary) !important;
+    cursor: not-allowed;
+  }
+}
+
+.value {
+  width: 40px;
+  text-align: center;
+  font-weight: var(--typography-font-weight-medium);
+  border-left: 1px solid var(--borders-default-color);
+  border-right: 1px solid var(--borders-default-color);
+  .disabled & {
+    color: var(--colors-text-tertiary); // สีตัวเลขจะจางลงด้วย
+  }
+}

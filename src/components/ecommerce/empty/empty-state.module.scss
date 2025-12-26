@@ -1,0 +1,27 @@
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-xxl) var(--spacing-large);
+  width: 100%;
+}
+
+.iconWrapper {
+  margin-bottom: var(--spacing-medium);
+  opacity: 0.6;
+}
+
+.title {
+  margin-bottom: var(--spacing-xs) !important;
+}
+
+.description {
+  max-width: 320px;
+  margin-bottom: var(--spacing-large) !important;
+}
+
+.action {
+  min-width: 160px;
+}

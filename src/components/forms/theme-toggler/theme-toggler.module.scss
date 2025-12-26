@@ -1,0 +1,75 @@
+.toggler {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--borders-default-color);
+  border-radius: var(--borders-radius-circle);
+  background-color: var(--colors-surface-background);
+  color: var(--colors-text-primary);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all var(--interactions-transitions-duration-medium) var(--interactions-transitions-easing-default);
+  box-sizing: border-box; // Added for robust layout
+
+  // Clean glass-like effect for modern feel
+  backdrop-filter: blur(var(--effects-blur-default));
+
+  &:hover {
+    background-color: var(--colors-surface-secondary);
+    border-color: var(--colors-primary-subtle);
+    box-shadow: var(--effects-shadows-small);
+    color: var(--colors-primary-default);
+  }
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 var(--borders-focus-width) var(--borders-focus-color);
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+.iconWrapper {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform var(--interactions-transitions-duration-medium) var(--interactions-transitions-easing-default),
+              opacity var(--interactions-transitions-duration-medium) var(--interactions-transitions-easing-default);
+}
+
+.sun {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
+
+  &.active {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.moon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
+
+  &.active {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}

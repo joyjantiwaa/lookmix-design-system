@@ -1,0 +1,94 @@
+.timeline {
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-medium) 0;
+}
+
+.eventItem {
+  display: flex;
+  gap: var(--spacing-medium);
+  min-height: 80px;
+
+  &.completed {
+    .dot {
+      background-color: var(--colors-primary-default);
+      border-color: var(--colors-primary-default);
+      color: var(--colors-text-inverse, #ffffff);
+    }
+    .line {
+      background-color: var(--colors-primary-default);
+    }
+    .statusTitle {
+      color: var(--colors-text-primary);
+      font-weight: var(--typography-font-weight-bold);
+    }
+  }
+
+  &:not(.completed) {
+    .dot {
+      background-color: var(--colors-surface-background);
+      border-color: var(--borders-default-color);
+    }
+    .statusTitle {
+      color: var(--colors-text-tertiary);
+    }
+  }
+}
+
+.indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--borders-default-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.line {
+  width: 2px;
+  flex-grow: 1;
+  background-color: var(--borders-default-color);
+  margin: 4px 0;
+}
+
+.content {
+  padding-bottom: var(--spacing-large);
+}
+
+.header {
+  display: flex;
+  align-items: baseline; // 1. ช่วยให้ฐานตัวหนังสือ Status กับ Time ตรงกัน
+  gap: var(--spacing-medium); // 2. เว้นระยะห่างระหว่าง Status กับ Time
+  margin-bottom: 4px;
+}
+
+.statusTitle {
+  font-size: var(--typography-sizes-body-medium);
+  font-weight: 600;
+  white-space: nowrap; // 3. กันไม่ให้ชื่อสถานะตัดบรรทัด (ถ้าไม่ยาวเกินไป)
+}
+
+.time {
+  font-size: var(--typography-sizes-caption-default);
+  color: var(--colors-text-tertiary);
+  font-weight: 400;
+  /* ไม่ต้องใส่ white-space: nowrap หรือ margin-left ถ้ามี gap แล้ว */
+}
+
+.description {
+  margin: 0;
+  font-size: var(--typography-sizes-body-small);
+  color: var(--colors-text-secondary);
+  line-height: 1.4;
+}

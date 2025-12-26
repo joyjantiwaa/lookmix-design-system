@@ -1,0 +1,32 @@
+.dateInput {
+  width: 100%;
+  
+  & :global(input) {
+    text-align: center !important;
+    font-weight: var(--typography-font-weight-medium);
+    cursor: pointer;
+  }
+}
+
+.calendarIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--colors-primary-default);
+  pointer-events: none; // ให้การคลิกทะลุไปหาตัว div คลุมด้านบน
+}
+
+.calendarWrapper {
+  // ใช้สีพื้นหลังตามที่พี่ต้องการ
+  background-color: var(--colors-surface-background);
+  
+  // เพิ่มความสวยงามและทำให้ลอยเด่นขึ้น
+  border: 1px solid var(--colors-primary-subtle);
+  border-radius: var(--borders-radius-medium, 12px);
+  box-shadow: var(--effects-shadow-large, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+  padding: var(--spacing-small, 8px);
+  
+  // ป้องกันเนื้อหาภายในล้นขอบ
+  overflow: hidden;
+}

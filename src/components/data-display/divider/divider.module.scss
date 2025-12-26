@@ -1,0 +1,56 @@
+.divider {
+  display: flex;
+  clear: both;
+  width: 100%;
+  margin: var(--spacing-medium, 16px) 0;
+  border: 0;
+  border-top: 1px solid var(--colors-primary-subtle, #e0e0e0);
+
+  // --- Orientations ---
+  &.vertical {
+    display: inline-block;
+    width: 1px;
+    height: 1em; // สูงเท่าตัวหนังสือรอบข้าง
+    margin: 0 var(--spacing-small, 8px);
+    vertical-align: middle;
+    border-top: 0;
+    border-left: 1px solid var(--colors-primary-subtle, #e0e0e0);
+  }
+
+  // --- Border Types ---
+  &.dashed { border-style: dashed; }
+  &.dotted { border-style: dotted; }
+
+  // --- With Content (Horizontal only) ---
+  &.withContent {
+    display: flex;
+    align-items: center;
+    border-top: 0; // ปิดเส้นหลัก แล้วใช้เส้นที่ล้อมรอบ Content แทน
+    margin: var(--spacing-medium, 16px) 0;
+
+    &::before,
+    &::after {
+      content: '';
+      flex: 1;
+      border-top: 1px solid var(--colors-primary-subtle, #e0e0e0);
+      border-top-style: inherit; // รับค่า solid/dashed/dotted มาจากตัวแม่
+    }
+
+    .content {
+      display: inline-block;
+      padding: 0 var(--spacing-small, 12px);
+      font-size: var(--typography-font-size-small, 14px);
+      color: var(--colors-primary-default, #666);
+      white-space: nowrap;
+    }
+  }
+
+  // --- Text Alignment ---
+  &.textAlign-left {
+    &::before { flex: 0; border-top: 0; padding-left: 0; }
+  }
+
+  &.textAlign-right {
+    &::after { flex: 0; border-top: 0; padding-right: 0; }
+  }
+}

@@ -1,0 +1,71 @@
+.badgeContainer {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0 var(--spacing-xs, 4px); // ใช้ Token spacing
+  color: var(--colors-text-inverse, #ffffff); // เปลี่ยนสีตัวอักษรเป็น Inverse
+  font-weight: var(--typography-font-weight-bold, 700);
+  font-family: var(--typography-font-family, sans-serif);
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: var(--borders-radius-pill, 9999px); // ใช้ pill เพื่อความมนยาวมาตรฐาน
+  z-index: var(--interactions-z-index-base, 1);
+
+  // Sizes
+  &.sm {
+    height: 16px;
+    min-width: 16px;
+    font-size: var(--typography-sizes-caption-default, 12px); // ปรับตาม Token เล็กสุด
+  }
+
+  &.md {
+    height: 20px;
+    min-width: 20px;
+    font-size: var(--typography-sizes-heading-h6, 14px);
+  }
+
+  // Variants (Map สีตาม Status Tokens ของพี่)
+  &.primary { 
+    background-color: var(--colors-primary-default, #3B82F6); 
+  }
+  &.secondary { 
+    background-color: var(--colors-secondary-default, #F3F4F6); 
+    color: var(--colors-text-secondary, #6B7280); // Secondary พื้นอ่อน ต้องใช้ตัวหนังสือเข้ม
+  }
+  &.success { 
+    background-color: var(--colors-status-positive-default, #10B981); 
+  }
+  &.danger { 
+    background-color: var(--colors-status-negative-default, #EF4444); 
+  }
+  &.warning { 
+    background-color: var(--colors-status-warning-default, #F59E0B); 
+  }
+
+  // จุดเล็กๆ
+  &.dot {
+    width: 10px;
+    height: 10px;
+    min-width: 10px;
+    padding: 0;
+    border-radius: var(--borders-radius-circle, 50%);
+  }
+
+  // วางซ้อนมุมขวาบน
+  &.overlap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    // เส้นขอบใช้สีพื้นหลัง Surface
+    border: var(--borders-focus-width, 2px) var(--borders-default-style, solid) var(--colors-surface-background, #FFFFFF);
+    z-index: var(--interactions-z-index-tooltip, 1100); // ยกให้สูงกว่าเพื่อน
+  }
+}

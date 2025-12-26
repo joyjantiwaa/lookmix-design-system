@@ -1,0 +1,54 @@
+.paragraph {
+  font-family: var(--typography-font-family);
+  margin: 0;
+  padding: 0;
+  font-weight: var(--typography-font-weight-regular);
+  transition: color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-default);
+  box-sizing: border-box;
+}
+
+.bodyLarge {
+  font-size: var(--typography-sizes-body-large);
+  line-height: var(--typography-line-height-base);
+  letter-spacing: var(--typography-letter-spacing-normal);
+}
+
+.bodyMedium {
+  font-size: var(--typography-sizes-body-medium);
+  line-height: var(--typography-line-height-base);
+  letter-spacing: var(--typography-letter-spacing-normal);
+}
+
+.bodyDefault {
+  font-size: var(--typography-sizes-body-default);
+  line-height: var(--typography-line-height-base);
+  letter-spacing: var(--typography-letter-spacing-normal);
+}
+
+.bodySmall {
+  font-size: var(--typography-sizes-body-small);
+  line-height: var(--typography-line-height-tight);
+  letter-spacing: var(--typography-letter-spacing-wide);
+}
+
+.caption {
+  font-size: var(--typography-sizes-caption-default);
+  line-height: var(--typography-line-height-tight);
+  letter-spacing: var(--typography-letter-spacing-wide);
+}
+
+.textPrimary {
+  color: var(--colors-text-primary);
+}
+
+.textSecondary {
+  color: var(--colors-text-secondary);
+}
+
+.textTertiary {
+  color: var(--colors-text-tertiary);
+}
+
+.textInverse {
+  color: var(--colors-text-inverse);
+}

@@ -1,0 +1,109 @@
+.header {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  z-index: var(--interactions-z-index-sticky);
+  transition: all var(--interactions-transitions-duration-medium) var(--interactions-transitions-easing-default);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: var(--layout-max-page-width);
+}
+
+/* Website Variant Styles */
+.website {
+  background-color: var(--colors-surface-background);
+  border-bottom: 1px solid var(--borders-default-color);
+  padding: 0 var(--layout-gutter);
+  height: 80px; // Larger height for website header
+  position: relative;
+  box-shadow: var(--effects-shadows-xs);
+
+  .container {
+    height: 100%;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+    
+    @media (max-width: 768px) {
+      display: none; // Hide nav on mobile for website variant (simplified for this task)
+    }
+  }
+
+  .navLink {
+    text-decoration: none;
+    color: var(--colors-text-secondary);
+    font-family: var(--typography-font-family);
+    font-size: var(--typography-sizes-body-default);
+    font-weight: var(--typography-font-weight-medium);
+    transition: color var(--interactions-transitions-duration-fast) ease;
+
+    &:hover {
+      color: var(--colors-primary-default);
+    }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-default);
+  }
+}
+
+/* App Variant Styles */
+.app {
+  position: sticky;
+  top: 0;
+  height: 56px; // Standard app bar height
+  padding: 0 var(--spacing-default);
+  background: var(--effects-gradients-glass);
+  backdrop-filter: blur(var(--effects-blur-default));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); // Subtle border for glass effect
+
+  .container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 40px 1fr 40px; // Left action, Title, Right action slots
+    align-items: center;
+    gap: var(--spacing-small);
+  }
+
+  .left {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .appTitle {
+    font-family: var(--typography-font-family);
+    font-size: var(--typography-sizes-heading-h6);
+    font-weight: var(--typography-font-weight-semi-bold);
+    color: var(--colors-text-primary);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

@@ -1,0 +1,19 @@
+
+import { Icon, type IconProps } from '../../icon'; // 1. ดึง Master Icon มาใช้
+import classNames from 'classnames';
+import styles from './history-linear.module.scss';
+
+// 2. ใช้ Omit เพื่อรับ Props ทั้งหมดจาก Icon หลัก (ยกเว้น icon ที่ระบุเอง)
+export type HistoryLinearIconProps = Omit<IconProps, 'icon'>;
+
+export function HistoryLinearIcon({ className, ...rest }: HistoryLinearIconProps) {
+  return (
+    <Icon 
+      // 3. ใส่รหัสไอคอน History (ตัวอย่าง: solar:history-linear)
+      icon="solar:history-linear" 
+      // 4. ผสม class เพื่อรักษา Style เฉพาะตัวจากไฟล์ .scss
+      className={classNames(styles.historyLinearIcon, className)} 
+      {...rest} 
+    />
+  );
+}

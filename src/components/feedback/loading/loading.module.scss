@@ -1,0 +1,66 @@
+// --- Spinner Styles ---
+.spinner {
+  display: inline-block;
+  border: 2px solid var(--colors-primary-subtle, #f3f3f3);
+  border-top: 2px solid var(--colors-primary-default, #007AFF);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+
+  &.sm { width: 16px; height: 16px; border-width: 2px; }
+  &.md { width: 32px; height: 32px; border-width: 3px; }
+  &.lg { width: 48px; height: 48px; border-width: 4px; }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// --- Skeleton Styles ---
+.skeleton {
+  background-color: var(--colors-surface-background-alt, #e0e0e0);
+  position: relative;
+  overflow: hidden;
+
+  &.text {
+    height: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    border-radius: 4px;
+  }
+
+  &.circular { border-radius: 50%; }
+  &.rectangular { border-radius: 8px; }
+
+  // Animations
+  &.pulse {
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  &.wave {
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      animation: wave 1.5s linear infinite;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+@keyframes wave {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;
+}

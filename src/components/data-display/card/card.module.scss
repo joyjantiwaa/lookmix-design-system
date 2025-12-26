@@ -1,0 +1,90 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--colors-surface-primary);
+  border-radius: var(--borders-radius-large);
+  box-shadow: var(--effects-shadows-small);
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  transition: box-shadow var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-default), transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-default);
+  width: 100%;
+}
+
+.interactive {
+  cursor: var(--interactions-cursor-pointer);
+
+  &:hover {
+    box-shadow: var(--effects-shadows-medium);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: var(--effects-shadows-xs);
+    transform: translateY(0);
+  }
+}
+
+.glass {
+  background-color: color-mix(in srgb, var(--colors-surface-background, #FFFFFF), transparent 40%);
+  backdrop-filter: blur(var(--effects-blur-default));
+  -webkit-backdrop-filter: blur(var(--effects-blur-default));
+  border: 1px solid var(--colors-surface-secondary);
+  box-shadow: var(--effects-shadows-glass);
+}
+
+.imageWrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  
+  // Ensure image covers the area if it's a banner
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+.header {
+  padding: var(--spacing-large) var(--spacing-large) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content {
+  padding: var(--spacing-large);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+  flex: 1;
+  color: var(--colors-text-secondary);
+}
+
+.title {
+  color: var(--colors-text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.footer {
+  padding: 0 var(--spacing-large) var(--spacing-large);
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+}
+
+// Compact variant for smaller cards like calendar cells
+.compact {
+  border-radius: var(--borders-radius-medium);
+  
+  .content {
+    padding: var(--spacing-small);
+  }
+
+  .header, .footer {
+    padding: var(--spacing-small);
+  }
+}

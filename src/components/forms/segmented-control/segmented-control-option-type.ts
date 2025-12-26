@@ -1,0 +1,16 @@
+export type SegmentedControlOption = {
+  /**
+   * The display label for the option.
+   */
+  label: string;
+
+  /**
+   * The unique value identifier for the option.
+   */
+  value: string;
+
+  /**
+   * Whether the option is disabled.
+   */
+  disabled?: boolean;
+};

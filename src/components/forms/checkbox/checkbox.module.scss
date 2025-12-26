@@ -1,0 +1,120 @@
+.checkboxContainer {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px;
+  user-select: none;
+  vertical-align: middle;
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  // --- ขนาดกล่องมาตรฐาน UI ---
+  &.sm { 
+    .control { width: 14px; height: 14px; border-radius: 3px; } 
+    .label { font-size: 13px; } 
+  }
+  &.md { 
+    .control { width: 16px; height: 16px; border-radius: 4px; } 
+    .label { font-size: 14px; } 
+  }
+  &.lg { 
+    .control { width: 20px; height: 20px; border-radius: 5px; } 
+    .label { font-size: 16px; } 
+  }
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hiddenInput {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: inherit;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+
+  &:focus-visible + .control {
+    box-shadow: 0 0 0 2px var(--colors-surface-background, #fff), 
+                0 0 0 4px var(--colors-primary-default, #007aff);
+  }
+
+  // เมื่อ Checked ขยายขนาดเครื่องหมายถูกเป็น 1.3 เท่า
+  &:checked + .control {
+    background-color: var(--colors-primary-default, #007aff);
+    border-color: var(--colors-primary-default, #007aff);
+    .checkIcon {
+      opacity: 1;
+      transform: scale(1.3); // ขยายให้ใหญ่คับกล่อง
+    }
+  }
+
+  &:indeterminate + .control {
+    background-color: var(--colors-primary-default, #007aff);
+    border-color: var(--colors-primary-default, #007aff);
+    .indeterminateIcon {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--colors-primary-subtle, #d1d1d6);
+  background-color: var(--colors-surface-background, #fff);
+  transition: all 0.2s ease;
+  color: var(--colors-text-inverse, #ffffff);
+  position: relative;
+  
+  // *** สำคัญ: เอา overflow: hidden ออก *** // เพื่อให้ตัวลูกศรที่ถูก scale(1.3) ไม่โดนตัดขอบ
+}
+.checkIcon {
+  width: 100%; 
+  height: 100%;
+  padding: 0; 
+  opacity: 0;
+  // เริ่มต้น: ให้ตัวเล็กและขยับไปทางซ้ายนิดๆ เพื่อทำ animation เด้งออกมา
+  transform: scale(0.5) translateX(-5%); 
+  transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46);
+  display: block;
+  margin: auto;
+}
+
+// เมื่อ Checked
+.hiddenInput:checked + .control {
+  background-color: var(--colors-primary-default, #007aff);
+  border-color: var(--colors-primary-default, #007aff);
+  
+  .checkIcon {
+    opacity: 1;
+    transform: scale(1.2) translateX(20%); 
+  }
+}
+
+.indeterminateIcon {
+  width: 60%;
+  height: 2px; // ลดความหนาขีดกลางให้รับกับเส้นลูกศร
+  background-color: currentColor;
+  border-radius: 1px;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.2s ease;
+}
+
+.label {
+  cursor: inherit;
+  color: var(--colors-primary-default, #1c1c1e);
+  line-height: 1.2;
+}

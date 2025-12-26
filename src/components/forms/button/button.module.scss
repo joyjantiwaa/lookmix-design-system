@@ -1,0 +1,154 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: 1px solid transparent;
+  outline: none;
+  cursor: var(--interactions-cursor-pointer);
+  font-family: var(--typography-font-family);
+  font-weight: var(--typography-font-weight-medium);
+  line-height: var(--typography-line-height-base);
+  border-radius: var(--borders-radius-pill);
+  transition: background-color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-default),
+              color var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-default),
+              transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-default),
+              box-shadow var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-default);
+  gap: var(--spacing-small);
+  white-space: nowrap;
+
+  &:focus-visible {
+    box-shadow: 0 0 0 var(--borders-focus-width) var(--borders-focus-color);
+  }
+}
+.sm {
+  padding: 4px 12px; // หรือใช้ var(--spacing-xsmall) var(--spacing-medium)
+  font-size: 12px;   // หรือใช้ var(--typography-sizes-body-small)
+}
+
+.md {
+  padding: var(--spacing-small) var(--spacing-large); // ค่าเดิมที่พี่เคยใส่ไว้ใน .button
+  font-size: var(--typography-sizes-body-default);
+}
+
+.lg {
+  padding: 12px 24px; // หรือใช้ var(--spacing-medium) var(--spacing-xlarge)
+  font-size: 18px;    // หรือใช้ var(--typography-sizes-h5)
+}
+.primary {
+  background-color: var(--colors-primary-default);
+  color: var(--colors-text-inverse) !important;
+  box-shadow: var(--effects-shadows-small);
+
+  &:hover:not(.disabled) {
+    background-color: var(--colors-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--effects-shadows-medium);
+  }
+
+  &:active:not(.disabled) {
+    background-color: var(--colors-primary-active);
+    transform: translateY(0);
+    box-shadow: var(--effects-shadows-small);
+  }
+}
+
+.secondary {
+  background-color: var(--colors-surface-secondary);
+  color: var(--colors-text-primary);
+  border-color: transparent;
+
+  &:hover:not(.disabled) {
+    background-color: var(--colors-surface-tertiary);
+    color: var(--colors-text-primary);
+  }
+
+  &:active:not(.disabled) {
+    background-color: var(--colors-surface-primary);
+  }
+}
+
+.tertiary {
+  background-color: transparent;
+  color: var(--colors-text-primary);
+  padding-left: var(--spacing-small);
+  padding-right: var(--spacing-small);
+
+  &:hover:not(.disabled) {
+    background-color: var(--colors-surface-secondary);
+    color: var(--colors-primary-default);
+  }
+
+  &:active:not(.disabled) {
+    color: var(--colors-primary-active);
+  }
+}
+
+.disabled {
+  cursor: var(--interactions-cursor-disabled);
+  opacity: var(--effects-opacity-disabled);
+  pointer-events: none;
+  box-shadow: none !important;
+}
+
+/* --- Danger Variant --- */
+.danger {
+  // ใช้สี Error/Danger จากระบบของพี่ (สมมติชื่อตัวแปรนะครับ)
+  background-color: var(--colors-error-default, #dc3545);
+  color: var(--colors-text-inverse) !important;
+  box-shadow: var(--effects-shadows-small);
+
+  &:hover:not(.disabled) {
+    background-color: var(--colors-error-hover, #bb2d3b);
+    transform: translateY(-1px);
+    box-shadow: var(--effects-shadows-medium);
+  }
+
+  &:active:not(.disabled) {
+    background-color: var(--colors-error-active, #a52834);
+    transform: translateY(0);
+  }
+}
+
+/* --- เพิ่มเติม: สำหรับกรณี Danger ที่เป็น Ghost (ถ้าพี่อยากได้) --- */
+.dangerGhost {
+  background-color: transparent;
+  color: var(--colors-error-default, #dc3545);
+  border-color: transparent;
+
+  &:hover:not(.disabled) {
+    background-color: var(--colors-error-subtle, rgba(220, 53, 69, 0.1));
+  }
+
+  &:active:not(.disabled) {
+    background-color: var(--colors-error-subtle, rgba(220, 53, 69, 0.2));
+  }
+}
+
+.fullWidth {
+  width: 100%;
+  display: flex; // หรือ block
+}
+
+.loading {
+  cursor: wait;
+  .label {
+    opacity: 0; // ซ่อนตัวหนังสือชั่วคราวเพื่อให้เห็น Spinner ชัดๆ หรือจะโชว์คู่กันก็ได้
+  }
+}
+
+.spinner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

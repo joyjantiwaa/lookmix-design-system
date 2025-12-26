@@ -1,0 +1,45 @@
+.form {
+  background: var(--colors-text-inverse, #ffffff);
+  padding: var(--spacing-large);
+  border-radius: var(--borders-radius-large);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr; // เริ่มต้นที่ 1 คอลัมน์สำหรับมือถือ
+  gap: var(--spacing-medium);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  
+  label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--colors-text-secondary);
+  }
+
+  input, textarea {
+    padding: 12px;
+    border: 1px solid var(--borders-default-color);
+    border-radius: var(--borders-radius-medium);
+    font-size: 16px;
+    &:focus { outline: 2px solid var(--colors-primary-default); border-color: transparent; }
+  }
+}
+
+.full { grid-column: span 2; }
+
+.submitBtn { margin-top: var(--spacing-large); }
+
+@media screen and (min-width: 480px) { // ใช้ตัวแปร $tablet ของพี่
+  .grid {
+    grid-template-columns: 1fr 1fr; // แบ่ง 2 คอลัมน์
+  }
+
+  .field.full {
+    grid-column: span 2; // ยืดเต็ม 2 คอลัมน์
+  }
+}

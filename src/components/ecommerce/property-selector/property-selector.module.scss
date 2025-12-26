@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-small);
+  margin-bottom: var(--spacing-medium);
+}
+
+.label {
+  font-size: var(--typography-sizes-body-small);
+  font-weight: var(--typography-font-weight-medium);
+  color: var(--colors-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.optionsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-small);
+}
+
+.option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  height: 44px; // ขนาดมาตรฐานให้กดง่ายบน Mobile
+  padding: 0 var(--spacing-medium);
+  background: var(--colors-surface-background);
+  border: 1px solid var(--borders-default-color);
+  border-radius: var(--borders-radius-medium);
+  cursor: pointer;
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-body-medium);
+  color: var(--colors-text-primary);
+  transition: all var(--interactions-transitions-duration-fast) ease;
+
+  &:hover:not(.active):not(:disabled) {
+    border-color: var(--colors-text-secondary);
+    background-color: var(--colors-surface-secondary);
+  }
+
+  &.active {
+    border-color: var(--colors-primary-default);
+    background-color: var(--colors-primary-lightest); // หรือใช้โปร่งแสง
+    color: var(--colors-primary-default);
+    font-weight: var(--typography-font-weight-bold);
+    box-shadow: 0 0 0 1px var(--colors-primary-default);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: var(--colors-text-disabled);
+    background-color: var(--colors-surface-disabled);
+    border-color: var(--borders-disabled-color);
+    text-decoration: line-through; // แสดงให้เห็นชัดว่าของหมด
+    opacity: 0.6;
+  }
+}
+
+/* 🎨 สำหรับกรณีที่เป็น Color Swatch */
+.colorType {
+  min-width: 44px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%; // วงกลมจะดูสวยกว่าสำหรับเลือกสี
+
+  &.active {
+    border-width: 2px;
+    transform: scale(1.1); // ยืดออกมาเล็กน้อยเมื่อเลือก
+  }
+}
+
+.colorCircle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1); // ขอบบางๆ กันสีขาวกลืนกับพื้นหลัง
+  display: block;
+}
+
+/* แสดงสถานะ Focus สำหรับ Accessibility */
+.option:focus-visible {
+  outline: 2px solid var(--colors-primary-default);
+  outline-offset: 2px;
+}

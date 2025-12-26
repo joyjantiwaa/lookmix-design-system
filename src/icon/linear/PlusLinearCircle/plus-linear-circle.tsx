@@ -1,0 +1,21 @@
+
+import { Icon, type IconProps } from '../../icon'; // 1. ดึง Master Icon มาใช้
+import classNames from 'classnames';
+import styles from './plus-linear-circle.module.scss';
+
+// 2. ใช้ Omit เพื่อรับ Props ทั้งหมดจาก Icon หลัก (ยกเว้น icon ที่ระบุเอง)
+export type PlusLinearCircleIconProps = Omit<IconProps, 'icon'>;
+
+export function PlusLinearCircleIcon({ className, ...rest }: PlusLinearCircleIconProps) {
+  return (
+    <Icon 
+      // 3. ใส่รหัสไอคอน Plus Circle (ตัวอย่าง: solar:add-circle-linear)
+      icon="solar:add-circle-linear" 
+      // 4. ผสม class เพื่อรักษา Style เฉพาะตัวจากไฟล์ .scss
+      className={classNames(styles.plusLinearCircleIcon, className)} 
+      {...rest} 
+    />
+  );
+}
+
+export default PlusLinearCircleIcon;

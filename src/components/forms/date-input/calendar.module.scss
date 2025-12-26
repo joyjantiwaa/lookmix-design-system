@@ -1,0 +1,85 @@
+.calendarContainer {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-small, 8px); 
+  background-color: var(--colors-surface-primary, #ffffff);
+  border-radius: inherit;
+
+  :global {
+    .rdp {
+      // ขนาดปุ่มวันที่ ดึงจากค่ากลางที่เหมาะสม
+      --rdp-day_button-width: 36px;
+      --rdp-day_button-height: 36px;
+      --rdp-cell-size: 38px; 
+      
+      // การใช้สีตาม Tokens
+      --rdp-accent-color: var(--colors-primary-default, #3B82F6);
+      --rdp-background-color: var(--colors-primary-subtle, #EBF5FF);
+      
+      // สีตัวอักษรและพื้นหลังอื่นๆ
+      --rdp-outline: 2px solid var(--borders-focus-color, #3B82F6);
+      --rdp-outline-focus: 2px solid var(--borders-focus-color, #3B82F6);
+      
+      margin: 0;
+    }
+
+    // ปรับแต่งปุ่มวันที่
+    .rdp-day_button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: var(--rdp-day_button-width);
+      height: var(--rdp-day_button-height);
+      border-radius: var(--borders-radius-small, 8px);
+      transition: background-color var(--interactions-transitions-duration-fast), 
+                  color var(--interactions-transitions-duration-fast);
+      cursor: var(--interactions-cursor-pointer, pointer);
+
+      &:hover:not(.rdp-day_selected) {
+        background-color: var(--colors-secondary-hover, #E5E7EB);
+      }
+    }
+
+    // ระยะห่างของตารางวันที่
+    .rdp-table {
+      border-collapse: separate;
+      border-spacing: var(--spacing-xs, 4px);
+    }
+
+    // สีชื่อวัน (Mo, Tu, We...)
+    .rdp-weekday {
+      font-size: var(--typography-sizes-caption-default, 12px);
+      font-weight: var(--typography-font-weight-medium, 500);
+      color: var(--colors-text-tertiary, #9CA3AF);
+      padding-bottom: var(--spacing-xs);
+    }
+  }
+}
+
+// สไตล์สำหรับตัวเลือกเดือนปี (Select Dropdown)
+.selectDropdown {
+  border: var(--borders-default-width, 1px) var(--borders-default-style, solid) var(--borders-default-color, #E5E7EB);
+  border-radius: var(--borders-radius-small, 8px);
+  padding: var(--spacing-xs) var(--spacing-small);
+  margin: 0 2px;
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-body-small, 14px);
+  color: var(--colors-text-primary, #111827);
+  cursor: var(--interactions-cursor-pointer, pointer);
+  background-color: var(--colors-surface-background, #ffffff);
+  transition: border-color var(--interactions-transitions-duration-fast);
+
+  &:hover {
+    border-color: var(--colors-primary-hover);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--borders-focus-color);
+    box-shadow: 0 0 0 1px var(--borders-focus-color);
+  }
+}
+
+.captionLabel {
+  display: none; 
+}

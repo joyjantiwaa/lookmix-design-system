@@ -1,0 +1,44 @@
+.summaryCard {
+  background: var(--colors-surface-secondary);
+  padding: var(--spacing-large);
+  border-radius: var(--borders-radius-large);
+}
+
+.title {
+  margin: 0 0 var(--spacing-medium) 0;
+  font-size: var(--typography-sizes-body-large);
+  font-weight: var(--typography-font-weight-bold);
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--typography-sizes-body-medium);
+  color: var(--colors-text-secondary);
+}
+
+.discount {
+  color: var(--colors-success-default);
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid var(--borders-default-color);
+  margin: 8px 0;
+}
+
+.totalRow {
+  color: var(--colors-text-primary);
+  font-weight: var(--typography-font-weight-bold);
+  font-size: var(--typography-sizes-body-large);
+}
+
+.checkoutBtn {
+  margin-top: var(--spacing-large);
+}

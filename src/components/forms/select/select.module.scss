@@ -1,0 +1,100 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs, 4px);
+  width: 100%;
+  font-family: var(--typography-font-family);
+}
+
+.label {
+  font-size: var(--typography-sizes-body-small, 14px);
+  font-weight: var(--typography-font-weight-medium, 500);
+  color: var(--colors-text-secondary, #6B7280); // ปรับจาก Primary เป็น Text Secondary ให้ดูซอฟต์ลง
+  font-family: var(--typography-font-family);
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--spacing-default, 16px);
+  height: 48px;
+  background-color: var(--colors-surface-background, #FFFFFF);
+  border: var(--borders-default-width, 1px) var(--borders-default-style, solid) var(--borders-default-color, #E5E7EB);
+  border-radius: var(--borders-radius-medium, 16px);
+  cursor: var(--interactions-cursor-pointer, pointer);
+  transition: all var(--interactions-transitions-duration-fast, 150ms) var(--interactions-transitions-easing-default);
+  font-family: var(--typography-font-family);
+
+  &:hover:not(.disabled) {
+    border-color: var(--colors-primary-hover, #2563EB);
+  }
+
+  &.open {
+    border-color: var(--borders-focus-color, #3B82F6);
+    // ใช้เงาแบบ Focus Ring ที่มาจาก Token
+    box-shadow: 0 0 0 var(--borders-focus-width, 2px) var(--colors-primary-subtle, #EBF5FF);
+  }
+
+  &.disabled {
+    opacity: var(--effects-opacity-disabled, 0.5);
+    cursor: var(--interactions-cursor-disabled, not-allowed);
+    background-color: var(--colors-surface-tertiary, #F3F4F6);
+  }
+}
+
+.value {
+  font-size: var(--typography-sizes-body-default, 16px);
+  color: var(--colors-text-primary, #111827);
+  font-family: var(--typography-font-family);
+
+  &.placeholder { 
+    color: var(--colors-text-tertiary, #9CA3AF); 
+  }
+}
+
+.chevron {
+  width: 20px;
+  height: 20px;
+  color: var(--colors-text-tertiary);
+  transition: transform var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-default);
+}
+
+.control.open .chevron {
+  transform: rotate(180deg);
+  color: var(--colors-primary-default);
+}
+
+.menu {
+  background-color: var(--colors-surface-background, #FFFFFF);
+  border: var(--borders-default-width, 1px) var(--borders-default-style, solid) var(--borders-default-color, #E5E7EB);
+  border-radius: var(--borders-radius-medium, 16px);
+  box-shadow: var(--effects-shadows-large); // ใช้เงาใหญ่ให้ดูลอยขึ้นมา (Overlay)
+  overflow: hidden;
+  z-index: var(--interactions-z-index-dropdown, 50);
+  padding: var(--spacing-xs, 4px);
+  font-family: var(--typography-font-family);
+  margin-top: var(--spacing-xs);
+}
+
+.option {
+  padding: var(--spacing-small) var(--spacing-default);
+  font-size: var(--typography-sizes-body-small, 14px);
+  border-radius: var(--borders-radius-small, 8px);
+  cursor: var(--interactions-cursor-pointer, pointer);
+  transition: background var(--interactions-transitions-duration-fast);
+  font-family: var(--typography-font-family);
+  line-height: var(--typography-line-height-base, 1.5);
+  color: var(--colors-text-primary);
+
+  &:hover {
+    background-color: var(--colors-primary-subtle, #EBF5FF); // Hover ใช้สีอ่อนเพื่อให้สบายตา
+    color: var(--colors-primary-default);
+  }
+
+  &.selected {
+    background-color: var(--colors-primary-default, #3B82F6);
+    color: var(--colors-text-inverse, #FFFFFF); // ตัวหนังสือขาวบนพื้นเข้ม
+    font-weight: var(--typography-font-weight-medium, 500);
+  }
+}

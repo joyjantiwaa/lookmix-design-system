@@ -1,0 +1,58 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-small);
+  text-decoration: none;
+  color: var(--colors-text-primary);
+  font-family: var(--typography-font-family);
+  user-select: none;
+  cursor: default;
+  box-sizing: border-box;
+  background: transparent;
+  padding: 0;
+  border: none;
+  outline: none;
+
+  &.clickable {
+    cursor: pointer;
+    transition: opacity var(--interactions-transitions-duration-fast) var(--interactions-transitions-easing-default);
+
+    &:hover {
+      opacity: var(--effects-opacity-hover);
+    }
+  }
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: var(--borders-radius-circle);
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name {
+  font-size: 20px; 
+  font-weight: var(--typography-font-weight-bold);
+  line-height: 1;
+  letter-spacing: 0.05em; 
+  text-transform: uppercase;
+  color: var(--colors-text-primary);
+  white-space: nowrap;
+}
+
+.slogan {
+  margin-top: 2px;
+  font-size: var(--typography-sizes-caption-default);
+  color: var(--colors-text-secondary);
+  line-height: 1.2;
+  font-weight: var(--typography-font-weight-regular);
+  white-space: nowrap;
+}

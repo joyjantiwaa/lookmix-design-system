@@ -1,0 +1,149 @@
+.footer {
+  background-color: var(--colors-surface-background);
+  color: var(--colors-text-primary);
+  padding: var(--spacing-xl) var(--spacing-large);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: var(--layout-max-page-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-large);
+}
+
+.topSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-medium);
+  align-items: flex-start;
+}
+
+.downloadLabel {
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-body-medium);
+  font-weight: var(--typography-font-weight-bold);
+  color: var(--colors-text-primary);
+}
+
+.storeButtons {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-medium);
+  flex-wrap: wrap;
+}
+
+.storeButton {
+  min-width: 140px;
+  justify-content: center;
+  border: 1px solid var(--borders-default-color) !important;
+  background-color: var(--colors-surface-background) !important;
+  color: var(--colors-text-primary) !important;
+  
+  &:hover {
+    background-color: var(--colors-surface-secondary) !important;
+  }
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--borders-default-color);
+  margin: var(--spacing-small) 0;
+}
+
+.bottomSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-large);
+}
+
+.leftGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-xl);
+  flex-wrap: wrap;
+}
+
+.copyright {
+  font-family: var(--typography-font-family);
+  font-size: var(--typography-sizes-caption-default);
+  color: var(--colors-text-secondary);
+  font-weight: var(--typography-font-weight-regular);
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-large);
+  flex-wrap: wrap;
+}
+
+.link {
+  font-family: var(--typography-font-family) !important;
+  font-size: var(--typography-sizes-caption-default) !important;
+  color: var(--colors-text-secondary) !important;
+  font-weight: var(--typography-font-weight-regular) !important;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--colors-text-primary) !important;
+    text-decoration: underline;
+  }
+}
+
+.socials {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-default);
+}
+
+.socialIcon {
+  /* 1. บังคับให้ไอคอนใช้สีเดียวกับ text-secondary (เหมือน Privacy Policy) */
+  color: var(--colors-text-secondary); 
+  fill: currentColor; 
+  
+  transition: color 0.2s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 3. เวลา Hover ให้เข้มขึ้นเหมือน Link */
+  &:hover {
+    color: var(--colors-text-primary);
+  }
+}
+
+@media (max-width: 768px) {
+  .bottomSection {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: var(--spacing-medium);
+  }
+
+  .leftGroup {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: var(--spacing-medium);
+    width: 100%;
+  }
+
+  .socials {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .links {
+    width: 100%;
+    justify-content: flex-start;
+    gap: var(--spacing-medium);
+  }
+}
