@@ -1,0 +1,14 @@
+import{j as e}from"./jsx-runtime-Clm7cEE4.js";import{B as p}from"./button-dP6pKN74.js";import{c as x}from"./index-B64kcLyW.js";import"./iframe-DG-dEiUR.js";import"./preload-helper-C1FmrZbK.js";import"./link-CdhBFSX1.js";const f="_form_1jiy2_1",b="_grid_1jiy2_7",j="_field_1jiy2_13",h="_full_1jiy2_34",g="_submitBtn_1jiy2_38",r={form:f,grid:b,field:j,full:h,submitBtn:g};function c({onSubmit:s}){return e.jsxs("form",{className:r.form,onSubmit:u=>{u.preventDefault(),s({})},children:[e.jsx("h3",{className:r.title,children:"Shipping Address"}),e.jsxs("div",{className:r.grid,children:[e.jsxs("div",{className:r.field,children:[e.jsx("label",{children:"First Name"}),e.jsx("input",{type:"text",placeholder:"John",required:!0})]}),e.jsxs("div",{className:r.field,children:[e.jsx("label",{children:"Last Name"}),e.jsx("input",{type:"text",placeholder:"Doe",required:!0})]}),e.jsxs("div",{className:x(r.field,r.full),children:[e.jsx("label",{children:"Address"}),e.jsx("textarea",{placeholder:"House No, Street, District...",rows:3,required:!0})]}),e.jsxs("div",{className:r.field,children:[e.jsx("label",{children:"Postal Code"}),e.jsx("input",{type:"text",placeholder:"10110",required:!0})]}),e.jsxs("div",{className:r.field,children:[e.jsx("label",{children:"Phone Number"}),e.jsx("input",{type:"tel",placeholder:"08x-xxx-xxxx",required:!0})]})]}),e.jsx(p,{type:"submit",fullWidth:!0,appearance:"primary",size:"lg",className:r.submitBtn,children:"CONTINUE TO PAYMENT"})]})}c.__docgenInfo={description:"",methods:[],displayName:"AddressForm",props:{onSubmit:{required:!0,tsType:{name:"signature",type:"function",raw:"(data: any) => void",signature:{arguments:[{type:{name:"any"},name:"data"}],return:{name:"void"}}},description:""}}};const D={title:"E-commerce/AddressForm",component:c,tags:["autodocs"],argTypes:{onSubmit:{action:"form submitted"}},decorators:[s=>e.jsx("div",{style:{maxWidth:"600px",margin:"2rem auto",backgroundColor:"#f5f5f5",padding:"2rem"},children:e.jsx(s,{})})]},t={args:{onSubmit:s=>console.log("Address Data:",s)}},a={parameters:{viewport:{defaultViewport:"mobile1"}},args:{onSubmit:s=>console.log("Mobile Submit:",s)}};var i,o,l;t.parameters={...t.parameters,docs:{...(i=t.parameters)==null?void 0:i.docs,source:{originalSource:`{
+  args: {
+    onSubmit: data => console.log('Address Data:', data)
+  }
+}`,...(l=(o=t.parameters)==null?void 0:o.docs)==null?void 0:l.source}}};var d,n,m;a.parameters={...a.parameters,docs:{...(d=a.parameters)==null?void 0:d.docs,source:{originalSource:`{
+  parameters: {
+    viewport: {
+      defaultViewport: 'mobile1'
+    }
+  },
+  args: {
+    onSubmit: data => console.log('Mobile Submit:', data)
+  }
+}`,...(m=(n=a.parameters)==null?void 0:n.docs)==null?void 0:m.source}}};const q=["Default","Mobile"];export{t as Default,a as Mobile,q as __namedExportsOrder,D as default};
