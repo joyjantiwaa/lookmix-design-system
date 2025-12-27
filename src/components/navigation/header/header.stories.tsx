@@ -9,6 +9,7 @@ const meta: Meta<typeof Header> = {
   component: Header,
   parameters: {
     layout: 'fullscreen',
+    router: true,
   },
   tags: ['autodocs'],
 };

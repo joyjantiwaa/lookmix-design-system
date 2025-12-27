@@ -5,7 +5,8 @@ const meta: Meta<typeof Footer> = {
   title: 'Layout/Footer',
   component: Footer,
   parameters: {
-    layout: 'fullscreen', // ให้แสดงผลเต็มหน้าจอ Storybook เพื่อดูความกว้างจริง
+    layout: 'fullscreen', 
+    router: true,
   },
   tags: ['autodocs'],
 };
