@@ -27,6 +27,7 @@ export const CustomBackground: Story = {
 // 3. ทดสอบบน Mobile (ใช้ viewport ของ Storybook ช่วยได้)
 export const MobileView: Story = {
   parameters: {
+    router: true, // ⭐ ต้องใส่
     viewport: {
       defaultViewport: 'mobile1',
     },

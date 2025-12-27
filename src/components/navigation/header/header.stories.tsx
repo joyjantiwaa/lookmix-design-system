@@ -52,6 +52,7 @@ export const MobileApp: Story = {
     ),
   },
   parameters: {
+    router: true,
     viewport: {
       defaultViewport: 'mobile1',
     },
