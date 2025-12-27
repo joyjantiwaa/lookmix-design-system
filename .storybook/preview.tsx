@@ -1,4 +1,3 @@
-//update
 import React from 'react';
 import type { Preview } from '@storybook/react-vite';
 import { jpjoyTokens } from '../src/theme/tokens/jpjoy-tokens';
