@@ -8,7 +8,7 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     appearance: {
       control: 'select',
-      options: ['primary', 'secondary', 'tertiary', 'danger'],
+      options: ['primary', 'secondary', 'tertiary', 'danger', 'outline'],
     },
     size: {
       control: 'select',
@@ -29,6 +29,7 @@ export const AllAppearances: Story = {
       <Button {...args} appearance="secondary">Secondary</Button>
       <Button {...args} appearance="tertiary">Tertiary</Button>
       <Button {...args} appearance="danger">Danger</Button>
+      <Button {...args} appearance="outline">outline</Button>
     </div>
   ),
 };
