@@ -1,1 +1,6 @@
-export type ButtonAppearance = 'primary' | 'secondary' | 'tertiary' | 'danger'
+export type ButtonAppearance =
+  | 'primary'
+  | 'secondary'
+  | 'tertiary'
+  | 'danger'
+  | 'outline';
