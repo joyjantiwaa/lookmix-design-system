@@ -1,81 +1,85 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { PropertySelector } from './property-selector';
 import { useState } from 'react';
-import classNames from 'classnames';
-import styles from './property-selector.module.scss';
-
-// ร่าง Component ภายในไฟล์ Story เพื่อทดสอบ SCSS ของพี่
-const PropertySelector = ({ 
-  label, 
-  options, 
-  type = 'text',
-  defaultValue 
-}: any) => {
-  const [selected, setSelected] = useState(defaultValue);
-
-  return (
-    <div className={styles.container}>
-      <span className={styles.label}>{label}</span>
-      <div className={styles.optionsGrid}>
-        {options.map((opt: any) => (
-          <button
-            key={opt.value}
-            disabled={opt.disabled}
-            className={classNames(styles.option, {
-              [styles.active]: selected === opt.value,
-              [styles.colorType]: type === 'color'
-            })}
-            onClick={() => setSelected(opt.value)}
-          >
-            {type === 'color' ? (
-              <span 
-                className={styles.colorCircle} 
-                style={{ backgroundColor: opt.value }} 
-              />
-            ) : (
-              opt.label
-            )}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-};
 
 const meta: Meta<typeof PropertySelector> = {
-  title: 'E-commerce/PropertySelector',
+  title: 'E-commerce/PropertySelector', // จัดกลุ่มตามโครงสร้างที่พี่ต้องการ
   component: PropertySelector,
+  parameters: {
+    layout: 'centered',
+  },
   tags: ['autodocs'],
+  argTypes: {
+    type: {
+      control: 'select',
+      options: ['text', 'color'],
+    },
+    onChange: { action: 'changed' },
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof PropertySelector>;
 
-// 1. การเลือกไซส์ (Size Selection)
+// --- Helper สำหรับจัดการ State ใน Storybook ---
+const PropertySelectorWithState = (args: any) => {
+  const [value, setValue] = useState(args.selectedValue || '');
+  return <PropertySelector {...args} selectedValue={value} onChange={setValue} />;
+};
+
+// 1. แบบเลือกขนาด (Text Type)
 export const SizeSelector: Story = {
+  render: (args) => <PropertySelectorWithState {...args} />,
   args: {
     label: 'Select Size',
     type: 'text',
-    defaultValue: 'M',
     options: [
-      { label: 'S', value: 'S', disabled: false },
-      { label: 'M', value: 'M', disabled: false },
-      { label: 'L', value: 'L', disabled: true }, // ของหมด
-      { label: 'XL', value: 'XL', disabled: false },
+      { label: 'S', value: 's' },
+      { label: 'M', value: 'm' },
+      { label: 'L', value: 'l' },
+      { label: 'XL', value: 'xl', disabled: true }, // ตัวอย่างกรณีของหมด
     ],
+    selectedValue: 'm',
   },
 };
 
-// 2. การเลือกสี (Color Swatches)
+// 2. แบบเลือกสี (Color Type)
 export const ColorSelector: Story = {
+  render: (args) => <PropertySelectorWithState {...args} />,
   args: {
     label: 'Select Color',
     type: 'color',
-    defaultValue: '#000000',
     options: [
-      { label: 'Black', value: '#000000', disabled: false },
-      { label: 'White', value: '#ffffff', disabled: false },
-      { label: 'Red', value: '#ff0000', disabled: false },
-      { label: 'Blue', value: '#0000ff', disabled: true },
+      { label: 'Midnight Black', value: 'black', color: '#1A1A1A' },
+      { label: 'Cloud White', value: 'white', color: '#FFFFFF' },
+      { label: 'Pacific Blue', value: 'blue', color: '#3B82F6' },
+      { label: 'Sunset Red', value: 'red', color: '#EF4444' },
     ],
+    selectedValue: 'black',
   },
+};
+
+// 3. แสดงหลายตัวพร้อมกัน (PDP Example)
+export const ProductDetailPreview: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', width: '320px' }}>
+      <PropertySelectorWithState
+        label="Color"
+        type="color"
+        options={[
+          { label: 'Green', value: 'g', color: '#22C55E' },
+          { label: 'Yellow', value: 'y', color: '#EAB308' },
+        ]}
+      />
+      <PropertySelectorWithState
+        label="Size"
+        type="text"
+        options={[
+          { label: '38', value: '38' },
+          { label: '39', value: '39' },
+          { label: '40', value: '40' },
+        ]}
+      />
+    </div>
+  ),
 };

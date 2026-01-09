@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { EmptyState } from './empty-state';
 
 const meta: Meta<typeof EmptyState> = {
-  title: 'Data Display/EmptyState',
+  title: 'E-commerce/Empty',
   component: EmptyState,
   tags: ['autodocs'],
 };

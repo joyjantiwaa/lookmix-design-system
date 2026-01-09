@@ -5,7 +5,7 @@ import { IconButton } from '../../forms/icon-button/icon-button';
 import { Icon } from '../../../icon/icon'; 
 
 const meta: Meta<typeof Header> = {
-  title: 'Layout/Header',
+  title: 'Navigation/Header',
   component: Header,
   parameters: {
     layout: 'fullscreen',

@@ -5,4 +5,3 @@ export { darkThemeSchema } from './tokens/dark-tokens';
 
 // ตัวช่วยอื่นๆ
 export * from './theme-options';
-export * from './ThemeGallery';

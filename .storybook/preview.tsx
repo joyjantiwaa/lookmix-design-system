@@ -18,6 +18,25 @@ const flatten = (obj: any, prefix = '-') => {
 };
 
 const preview: Preview = {
+  parameters: {
+    // --- ส่วนการเรียงลำดับกลุ่มทางซ้ายมือ ---
+    options: {
+      storySort: {
+        order: [
+          'Foundation',
+          'Typography', 
+          'Icon', 
+          'Forms', 
+          'Navigation', 
+          'Data Display', 
+          'Ecommerce', 
+          'Feedback'
+        ],
+      },
+    },
+    // --- ตั้งค่าให้แสดงผลสวยๆ ---
+    layout: 'centered',
+  },
   decorators: [
     (Story, context) => {
       const needsRouter = context.parameters?.router ?? false;

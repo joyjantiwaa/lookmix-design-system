@@ -1,28 +1,19 @@
-// src/icons/icon.tsx
+// src/icon/icon.tsx
 import React from 'react';
 import { Icon as IconifyRender } from '@iconify/react'; 
 
 export interface IconProps {
-  /** * ชื่อไอคอนจาก Iconify เช่น "mingcute:home-line"
-   * ถ้าส่ง children มา ไม่ต้องใส่ icon ก็ได้ครับ
-   */
+  /** ชื่อไอคอนจาก Iconify เช่น "mingcute:home-line" */
   icon?: string; 
-  
   /** ขนาดความกว้างและสูง (px) */
   size?: number | string;
-  
   /** คลาสสำหรับปรับแต่งเพิ่มเติม */
   className?: string;
-  
-  /** สีของไอคอน (ค่าเริ่มต้นคือ 'currentColor' เพื่อให้เปลี่ยนตามสีตัวหนังสือ) */
+  /** สีของไอคอน (ค่าเริ่มต้นคือ 'currentColor') */
   color?: string;
-  
   /** สไตล์เพิ่มเติม */
   style?: React.CSSProperties;
-  
-  /** * รองรับการนำ Component ไอคอนอื่นๆ มาใส่ข้างใน 
-   * เช่น <Icon size={20}><AppleIcon /></Icon>
-   */
+  /** รองรับการนำ Component ไอคอนอื่นๆ มาใส่ข้างใน */
   children?: React.ReactNode;
 }
 
@@ -36,42 +27,37 @@ export function Icon({
   ...rest 
 }: IconProps) {
   
-  // สไตล์พื้นฐานสำหรับการคุมขนาดและสี
   const containerStyle: React.CSSProperties = {
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
     width: size,
     height: size,
-    flexShrink: 0, // ป้องกันไอคอนโดนเบียดจนแบน
-    color: color || undefined,
+    flexShrink: 0,
+    color: color || 'currentColor', // ใช้ currentColor เป็นค่าพื้นฐาน
     ...style,
   };
 
-  // เคสที่ 1: ถ้ามีการส่ง children (เช่น <AppleIcon />) มาข้างใน
+  // เคสที่ 1: ถ้ามีการส่ง children (Custom SVG หรือ Local Icons)
   if (children) {
     return (
-      <span 
-        className={className} 
-        style={containerStyle}
-        {...rest}
-      >
-        {/* บังคับให้รูปข้างในมีขนาดเต็มตามที่ตั้งไว้ที่ wrapper */}
+      <span className={className} style={containerStyle} {...rest}>
         {React.isValidElement(children) 
           ? React.cloneElement(children as React.ReactElement<any>, { 
               width: size, 
               height: size,
-              style: { display: 'block', ...((children.props as any).style || {}) } 
+              // ป้องกัน Error ถ้า children ไม่มี style props
+              style: { display: 'block', ...(children.props?.style || {}) } 
             }) 
           : children}
       </span>
     );
   }
 
-  // เคสที่ 2: ถ้าไม่มี icon string ส่งมา ให้ไม่แสดงผลอะไรเลย
+  // เคสที่ 2: ถ้าไม่มี icon string ส่งมา
   if (!icon) return null;
 
-  // เคสที่ 3: ใช้ Iconify Render ตามปกติ
+  // เคสที่ 3: ใช้ Iconify
   return (
     <span className={className} style={containerStyle} {...rest}>
       <IconifyRender 

@@ -1,18 +1,19 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { libInjectCss } from 'vite-plugin-lib-inject-css';
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), libInjectCss()],
 
-  define: {
-    'process.env.NODE_ENV': JSON.stringify(
-      process.env.NODE_ENV || 'development'
-    ),
-  },
-
-  resolve: {
-    alias: {
-      assert: 'browser-assert',
+  build: {
+    lib: {
+      entry: 'src/index.ts',
+      name: 'LookmixDesignSystem',
+      fileName: 'index',
+      formats: ['es'],
+    },
+    rollupOptions: {
+      external: ['react', 'react-dom', 'react-router-dom'],
     },
   },
 });

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Footer } from './footer';
 
 const meta: Meta<typeof Footer> = {
-  title: 'Layout/Footer',
+  title: 'Navigation/Footer',
   component: Footer,
   parameters: {
     layout: 'fullscreen', 

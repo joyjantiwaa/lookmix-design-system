@@ -4,7 +4,7 @@ import { Modal } from './modal';
 import { Button } from '../../forms/button/button'; // สมมติ path นะครับ
 
 const meta: Meta<typeof Modal> = {
-  title: 'Overlay/Modal',
+  title: 'Feedback/Modal',
   component: Modal,
   parameters: {
     layout: 'fullscreen', // เพราะ Modal มี Overlay เต็มจอ

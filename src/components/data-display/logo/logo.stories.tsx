@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Logo } from './logo';
 
 const meta: Meta<typeof Logo> = {
-  title: 'Foundation/Logo',
+  title: 'Data Display/Logo',
   component: Logo,
   tags: ['autodocs'],
   argTypes: {

@@ -3,7 +3,7 @@ import { ThemeToggler } from './theme-toggler';
 import { ThemeProvider } from '../../../theme/theme-controller';
 
 const meta: Meta<typeof ThemeToggler> = {
-  title: 'Components/ThemeToggler',
+  title: 'Forms/ThemeToggler',
   component: ThemeToggler,
   tags: ['autodocs'],
   decorators: [
